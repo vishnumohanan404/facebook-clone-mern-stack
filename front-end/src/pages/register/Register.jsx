@@ -1,7 +1,8 @@
 import axios from "axios";
 import { useRef } from "react";
 import "./Register.css";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
+
 
 export default function Register() {
   const username = useRef();
@@ -22,9 +23,9 @@ export default function Register() {
       };
       try {
         const res = await axios.post("/auth/register", user);
-        history.push("/login")
+        history.push("/login");
       } catch (err) {
-        console.log(err)
+        console.log(err);
       }
     }
   };
@@ -71,7 +72,9 @@ export default function Register() {
             <button className="loginButton" type="submit">
               Sign up
             </button>
-            <button className="loginRegisterButton">Login</button>
+            <Link to="/login" className="loginRegisterButtonClass">
+              <button className="loginRegisterButton">Login</button>
+            </Link>
           </form>
         </div>
       </div>

@@ -80,3 +80,18 @@
     font-weight: 500;
     cursor: pointer;
 }
+
+.loginRegisterButtonClass{
+  height: 50px;
+  border-radius: 10px;
+  border: none;
+  background-color: #42b72a;
+  color: white;
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  text-decoration: none;
+}

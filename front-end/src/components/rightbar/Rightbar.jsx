@@ -12,22 +12,57 @@ export default function Rightbar({ user }) {
   const [friends, setFriends] = useState([]);
   const { user: currentUser, dispatch } = useContext(AuthContext);
   const [followed, setFollowed] = useState(
-    currentUser.following.includes(user?.id)
+    currentUser.following.includes(user?._id)
   );
 
+  useEffect(() => {
+    ;
+  }, []);
+  const [dummy, setDummy] = useState(user);
+  console.log(currentUser.following, "current.foloowing");
+  console.log(currentUser, "current");
+  console.log(dummy, "dummy");
+  console.log(user?._id, "following");
+  console.log(user, "user");
+  console.log(followed, "followed");
+  console.log(friends, "friends");
+  const test = currentUser.following.includes(user?._id);
+  console.log(test, "test");
+  setTimeout(() => {
+    console.log(followed, "setTimeout");
+  }, 10000);
 
   useEffect(() => {
-    const getFriends = async () => {
-      try {
-        console.log(user._id,"user inside useeffect")
-        const friendList = await axios.get("/users/friends/" + user._id);
-        setFriends(friendList.data);
-      } catch (err) {
-        console.log(err);
+    console.log(dummy, "test in useeffect");
+    if (user) {
+      setFollowed(currentUser.following.includes(user?._id))
+      if (user._id === currentUser._id) {
+        const getFriends = async () => {
+          try {
+            const friendList = await axios.get("/users/friends/" + user._id);
+            setFriends(friendList.data);
+            console.log(friendList, "this is friends list");
+          } catch (err) {
+            console.log(err);
+          }
+        };
+        getFriends();
+      } else {
+        const getFollowers = async () => {
+          try {
+            const followersList = await axios.get(
+              "/users/followers/" + user._id
+            );
+            setFriends(followersList.data);
+            console.log(followersList, "this is followers list");
+          } catch (err) {
+            console.log(err);
+          }
+        };
+        getFollowers();
       }
-    };
-    getFriends();
-  }, [user]);
+    }
+  }, [user, currentUser]);
 
   const handleClick = async () => {
     try {
@@ -42,9 +77,9 @@ export default function Rightbar({ user }) {
         });
         dispatch({ type: "FOLLOW", payload: user._id });
       }
-      setFollowed(!followed);
-    } catch (err) {
-    }
+    } catch (err) {}
+
+    setFollowed(!followed);
   };
 
   const HomeRightbar = () => {
@@ -103,6 +138,7 @@ export default function Rightbar({ user }) {
             <Link
               to={"/profile/" + friend.username}
               style={{ textDecoration: "none" }}
+              key={friend._id}
             >
               <div className="rightbarFollowing">
                 <img

@@ -88,3 +88,17 @@
     font-weight: 500;
     cursor: pointer;
 }
+
+.linkClass{
+  height: 50px;
+  border-radius: 10px;
+  border: none;
+  background-color: #42b72a;
+  color: white;
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+}

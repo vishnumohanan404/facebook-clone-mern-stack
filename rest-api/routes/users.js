@@ -56,21 +56,50 @@ router.get("/", async (req, res) => {
 });
 
 // get friends
-router.get("/friends/:userId", async(req, res) => {
+router.get("/friends/:userId", async (req, res) => {
+  console.log(req.params,"params for api req");
   try {
     const user = await User.findById(req.params.userId);
+    console.log(user,"user in api")
     const friends = await Promise.all(
       user.following.map((friendId) => {
+        console.log(friendId,"friends in map");
         return User.findById(friendId);
       })
     );
     let friendList = [];
+    console.log(friends);
     friends.map((friend) => {
       const { _id, username, profilePicture } = friend;
       friendList.push({ _id, username, profilePicture });
     });
-    res.status(200).json(friendList)
+    res.status(200).json(friendList);
   } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// get followers 
+router.get("/followers/:userId", async (req, res) => {
+  console.log(req.params,"params for api req");
+  try {
+    const user = await User.findById(req.params.userId);
+    console.log(user,"user in api")
+    const followers = await Promise.all(
+      user.followers.map((followerId) => {
+        console.log(followerId,"friends in map");
+        return User.findById(followerId);
+      })
+    );
+    let followersList = [];
+    console.log(followers,"followers after promise");
+    followers.map((follower) => {
+      const { _id, username, profilePicture } = follower;
+      followersList.push({ _id, username, profilePicture });
+    });
+    res.status(200).json(followersList);
+  } catch (err) {
+    console.log(err.message);
     res.status(500).json(err);
   }
 });

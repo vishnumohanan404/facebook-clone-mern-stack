@@ -26,7 +26,7 @@ function App() {
         <Route path="/register">
          {user ? <Redirect to="/"/> : <Register/>}
         </Route>
-        <Route path="/profile/:username">
+        <Route exact path="/profile/:username">
           <Profile/>
         </Route>
       </Switch>

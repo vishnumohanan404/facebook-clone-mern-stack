@@ -9,6 +9,9 @@ const authRoute = require("./routes/auth");
 const postRoute = require("./routes/posts");
 const multer = require("multer");
 const path = require("path");
+var bodyParser = require('body-parser');
+
+app.use(bodyParser());
 
 mongoose.connect(
   process.env.MONGO_URL,

@@ -10,6 +10,7 @@ import { useParams } from "react-router-dom";
 export default function Profile() {
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
   const [user, setUser] = useState({});
+  console.log(user,"user from profile")
   const username = useParams().username
   useEffect(() => {
     const fetchUser = async () => {
