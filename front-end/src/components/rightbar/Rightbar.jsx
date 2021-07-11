@@ -16,24 +16,6 @@ export default function Rightbar({ user }) {
   );
 
   useEffect(() => {
-    ;
-  }, []);
-  const [dummy, setDummy] = useState(user);
-  console.log(currentUser.following, "current.foloowing");
-  console.log(currentUser, "current");
-  console.log(dummy, "dummy");
-  console.log(user?._id, "following");
-  console.log(user, "user");
-  console.log(followed, "followed");
-  console.log(friends, "friends");
-  const test = currentUser.following.includes(user?._id);
-  console.log(test, "test");
-  setTimeout(() => {
-    console.log(followed, "setTimeout");
-  }, 10000);
-
-  useEffect(() => {
-    console.log(dummy, "test in useeffect");
     if (user) {
       setFollowed(currentUser.following.includes(user?._id))
       if (user._id === currentUser._id) {

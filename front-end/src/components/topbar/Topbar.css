@@ -91,4 +91,13 @@
   height: 32px;
   border-radius: 50%;
   object-fit: cover;
+  margin-right: 0;
+  padding: 0;
 }
+
+.dropdownMenu{
+  margin-left: 0%;
+  padding: 0;
+  cursor: pointer;
+}
+
