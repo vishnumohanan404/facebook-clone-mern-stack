@@ -4,11 +4,11 @@ Frontend design is inspired from facebook and every thing is build from scratch 
 
 Screenshots:
 
-![alt text](https://github.com/KingKong26/facebook-clone-mern-stack/tree/master/screenshots/1.jpeg?raw=true)
+![alt text](https://github.com/KingKong26/facebook-clone-mern-stack/blob/master/screenshots/1.jpeg?raw=true)
 
-![alt text](https://github.com/KingKong26/facebook-clone-mern-stack/tree/master/screenshots/2.jpeg?raw=true)
+![alt text](https://github.com/KingKong26/facebook-clone-mern-stack/blob/master/screenshots/2.jpeg?raw=true)
 
-![alt text](https://github.com/KingKong26/facebook-clone-mern-stack/tree/master/screenshots/3.jpeg?raw=true)
+![alt text](https://github.com/KingKong26/facebook-clone-mern-stack/blob/master/screenshots/3.jpeg?raw=true)
 
 
 
